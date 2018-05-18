@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="app_primary_color" format="color"/> <!-- topbar -->
+    <attr name="app_content_bg_color" format="color"/> <!-- content-->
+    <attr name="home_tab_normalColor" format="color"/> <!-- content-->
+    <attr name="home_tab_selectColor" format="color"/> <!-- content-->
+</resources>

@@ -1,0 +1,121 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        applicationId rootProject.ext.applicationId
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file(KEY_PATH)
+            storePassword KEY_PASSWORD
+            keyAlias ALIAS_NAME
+            keyPassword ALIAS_PASSWORD
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            // 显示log
+            buildConfigField 'boolean', 'PROXY', 'true'
+            // 主机地址
+            buildConfigField 'String', 'HOST_URL', '"https://app.minshengwealth.com"'
+            // api请求baseurl
+            buildConfigField 'String', 'BASE_URL', '"https://app.minshengwealth.com:8081/app/"'
+            //文件资源基本url
+            buildConfigField 'String', 'BASE_RESOURCE_URL', '"https://app.minshengwealth.com:8081"'
+            //注册图形验证码基本url
+            buildConfigField 'String', 'BASE_IMAGE_CODE_URL', '"https://app.minshengwealth.com:8081/jcaptcha/register?jcaptchaKey="'
+            //修改密码图形验证码基本url
+            buildConfigField 'String', 'BASE_RESETPWD_IMAGE_CODE_URL', '"https://app.minshengwealth.com:8081/jcaptcha/resetpwd?jcaptchaKey="'
+            //修改手机号第一步图形验证码基本url
+            buildConfigField 'String', 'BASE_FIRST_IMAGE_CODE_URL', '"https://app.minshengwealth.com:8081/jcaptcha/checkMobile?jcaptchaKey="'
+            //修改手机号第二步图形验证码基本url
+            buildConfigField 'String', 'BASE_SECOND_IMAGE_CODE_URL', '"https://app.minshengwealth.com:8081/jcaptcha/resetMobile?jcaptchaKey="'
+
+        }
+
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField 'boolean', 'PROXY', 'false'
+            // 主机地址
+            buildConfigField 'String', 'HOST_URL', '"https://app.minshengwealth.com"'
+            // api请求baseurl
+            buildConfigField 'String', 'BASE_URL', '"https://app.minshengwealth.com:8081/app/"'
+            //文件资源基本url
+            buildConfigField 'String', 'BASE_RESOURCE_URL', '"https://app.minshengwealth.com:8081"'
+            //注册图形验证码基本url
+            buildConfigField 'String', 'BASE_IMAGE_CODE_URL', '"https://app.minshengwealth.com:8081/jcaptcha/register?jcaptchaKey="'
+            //修改密码图形验证码基本url
+            buildConfigField 'String', 'BASE_RESETPWD_IMAGE_CODE_URL', '"https://app.minshengwealth.com:8081/jcaptcha/resetpwd?jcaptchaKey="'
+            //修改手机号第一步图形验证码基本url
+            buildConfigField 'String', 'BASE_FIRST_IMAGE_CODE_URL', '"https://app.minshengwealth.com:8081/jcaptcha/checkMobile?jcaptchaKey="'
+            //修改手机号第二步图形验证码基本url
+            buildConfigField 'String', 'BASE_SECOND_IMAGE_CODE_URL', '"https://app.minshengwealth.com:8081/jcaptcha/resetMobile?jcaptchaKey="'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+}
+
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+//    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    implementation rootProject.ext.dependencies["qmui"]
+    implementation rootProject.ext.dependencies["qmui_arch"]
+    implementation rootProject.ext.dependencies["appcompat-v7"]
+    implementation rootProject.ext.dependencies["constraint-layout"]
+    implementation rootProject.ext.dependencies["glide"]
+    implementation rootProject.ext.dependencies["eventBus"]
+    implementation rootProject.ext.dependencies["retrofit"]
+    implementation rootProject.ext.dependencies["gson"]
+    implementation rootProject.ext.dependencies["converter-gson"]
+    implementation rootProject.ext.dependencies["adapter-rxjava"]
+    implementation rootProject.ext.dependencies["rxjava"]
+    implementation rootProject.ext.dependencies["rxandroid"]
+    implementation rootProject.ext.dependencies["rxpermissions"]
+    debugImplementation rootProject.ext.dependencies["debugleakcanary"]
+    releaseImplementation rootProject.ext.dependencies["releaseleakcanary"]
+    implementation rootProject.ext.dependencies["butterKnife"]
+    annotationProcessor rootProject.ext.dependencies["butterKnife-compiler"]
+    implementation rootProject.ext.dependencies["logger"]
+    implementation rootProject.ext.dependencies["recyclerview"]
+    implementation rootProject.ext.dependencies["Toasty"]
+    implementation rootProject.ext.dependencies["SmartRefreshLayout"]
+    implementation rootProject.ext.dependencies["BaseRecyclerViewAdapterHelper"]
+    //    implementation rootProject.ext.dependencies["cardview"]
+//        implementation rootProject.ext.dependencies["design"]
+    //    implementation rootProject.ext.dependencies["FlycoTabLayout_Lib"]
+    implementation rootProject.ext.dependencies["banner"]
+    //    implementation rootProject.ext.dependencies["zxing-library"]
+    //    implementation rootProject.ext.dependencies["circleimageview"]
+    //    implementation rootProject.ext.dependencies["MPAndroidChart"]
+    //    implementation rootProject.ext.dependencies["Luban"]
+
+}

@@ -1,0 +1,80 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.1'
+
+        //gradle-retrolambda配置
+        classpath 'me.tatarka:gradle-retrolambda:3.7.0'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    buildToolsVersion = "27.0.3"
+    compileSdkVersion = 26
+    minSdkVersion = 19
+    targetSdkVersion = 26
+    versionCode = 1
+    versionName = "1.0.0"
+    applicationId = "com.zichen.frame"
+
+    dependencies = [
+            "appcompat-v7"        : "com.android.support:appcompat-v7:27.+",
+            "constraint-layout"   : "com.android.support.constraint:constraint-layout:1.1.0",
+//            "cardview"                     : "com.android.support:cardview-v7:26.0.0-alpha1",
+            "retrofit"            : "com.squareup.retrofit2:retrofit:2.3.0",
+            "gson"                : "com.google.code.gson:gson:2.8.1",
+            "converter-gson"      : "com.squareup.retrofit2:converter-gson:2.2.0",
+            "adapter-rxjava"      : "com.squareup.retrofit2:adapter-rxjava2:2.2.0",
+            "rxandroid"           : "io.reactivex.rxjava2:rxandroid:2.0.1",
+            "rxjava"              : "io.reactivex.rxjava2:rxjava:2.1.2",
+            "glide"               : "com.github.bumptech.glide:glide:3.7.0",
+            "eventBus"            : "org.greenrobot:eventbus:3.0.0",
+            "butterKnife"         : "com.jakewharton:butterknife:8.7.0",
+            // 不加这个butterknife用不了
+            "butterKnife-compiler": "com.jakewharton:butterknife-compiler:8.7.0",
+            "debugleakcanary"     : "com.squareup.leakcanary:leakcanary-android:1.5.1",
+            "releaseleakcanary"   : "com.squareup.leakcanary:leakcanary-android-no-op:1.5.1",
+            "logger"              : "com.orhanobut:logger:2.1.1",
+//            "FlycoTabLayout_Lib"           : "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar",
+            "banner"              : "com.youth.banner:banner:1.4.9",
+//            "zxing"                        : "com.google.zxing:core:3.3.0",
+//            "zxing-library"                : "cn.yipianfengye.android:zxing-library:2.2",
+//            "circleimageview"              : "de.hdodenhof:circleimageview:2.1.0",
+//            "MPAndroidChart"               : "com.github.PhilJay:MPAndroidChart:v3.0.2",
+//            "design"                       : "com.android.support:design:26.0.0-alpha1",
+            "recyclerview"        : "com.wuxiaolong.pullloadmorerecyclerview:library:1.1.2",
+//            "Luban"                        : "top.zibin:Luban:1.1.3",
+            "rxpermissions"       : "com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar",
+//            "jpush"                        : "cn.jiguang.sdk:jpush:3.0.8",
+//            "jcore"                        : "cn.jiguang.sdk:jcore:1.1.6",
+
+            "qmui"                : "com.qmuiteam:qmui:1.1.2",
+            "qmui_arch"           : "com.qmuiteam:arch:0.0.1",
+            "Toasty"              : "com.github.GrenderG:Toasty:1.3.0",
+            "SmartRefreshLayout"  : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-5",
+            "BaseRecyclerViewAdapterHelper"  : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30",
+
+
+    ]
+}
+

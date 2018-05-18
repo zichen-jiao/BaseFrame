@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">BaseFrame</string>
+
+    <string name="app_upgrade_tip_title">Release Notes (%1$s)</string>
+
+
+    <string name="common_hint">提示</string>
+    <string name="dialog_msg_force_offline">您已在别处登录，此处已下线</string>
+    <string name="confirm2">确定</string>
+    <string name="common_cancel">取消</string>
+
+    <string name="click_again_to_exist">请再按一次退出程序</string>
+</resources>
